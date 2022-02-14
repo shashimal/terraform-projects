@@ -1,2 +1,3 @@
 /aws-s3-static-website/.terraform/
 /aws-s3-static-website/.terraform.lock.hcl
+/aws-cloudwatch-subscription-filter-lambda/.terraform.lock.hcl
