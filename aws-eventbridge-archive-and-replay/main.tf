@@ -9,7 +9,7 @@ module "eventbridge" {
     customer-order-events = {
       description   = "Customer Order Events"
       event_pattern = jsonencode({
-        "source" : ["com.duleendra"]
+        "source" : ["com.duleendra.orderservice"]
          "detail-type" : ["Customer Order"]
       })
     }
@@ -33,7 +33,7 @@ module "eventbridge" {
       description    = "Customer order events archive "
       retention_days = 1
       event_pattern  = jsonencode({
-        "source" : ["com.duleendra"]
+        "source" : ["com.duleendra.orderservice"]
         "detail-type" : ["Customer Order"]
       })
     }

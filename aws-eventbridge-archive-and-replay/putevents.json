@@ -1,0 +1,20 @@
+[
+  {
+    "Source": "com.duleendra.orderservice",
+    "Detail": "{ \"Id\": \"1\", \"Price\": \"500\", \"Item\": \"Watch\" }",
+    "DetailType": "Customer Order",
+    "EventBusName": "customer-order-bus"
+  },
+  {
+    "Source": "com.duleendra.orderservice",
+    "Detail": "{ \"Id\": \"2\", \"Price\": \"600\", \"Item\": \"Bag\" }",
+    "DetailType": "Customer Order",
+    "EventBusName": "customer-order-bus"
+  },
+  {
+    "Source": "com.duleendra.orderservice",
+    "Detail": "{ \"Id\": \"3\", \"Price\": \"700\", \"Item\": \"Phone\" }",
+    "DetailType": "Customer Order",
+    "EventBusName": "customer-order-bus"
+  }
+]
