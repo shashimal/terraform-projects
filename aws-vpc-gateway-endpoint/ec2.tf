@@ -1,4 +1,4 @@
-module "ec2_instance" {
+module "public_ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
 
@@ -35,48 +35,4 @@ module "private_ec2_instance" {
     Terraform   = "true"
     Environment = "dev"
   }
-}
-
-resource "aws_security_group" "public_sg" {
-  name = "public-sg"
-  description = "public-sg"
-  vpc_id = module.vpc.vpc_id
-
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
-}
-
-resource "aws_security_group" "private_sg" {
-  name = "private-sg"
-  description = "private-sg"
-  vpc_id = module.vpc.vpc_id
-
-  ingress {
-    from_port = 22
-    to_port   = 22
-    protocol  = "tcp"
-    cidr_blocks = module.vpc.public_subnets_cidr_blocks
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-
 }

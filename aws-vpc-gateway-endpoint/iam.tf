@@ -17,6 +17,14 @@ data "aws_iam_policy_document" "s3_access_policy_document" {
     ]
     resources = ["*"]
   }
+  statement {
+    sid     = "SidSQS"
+    effect  = "Allow"
+    actions = [
+      "sqs:*"
+    ]
+    resources = ["*"]
+  }
 }
 
 resource "aws_iam_role" "ec2_instance_role" {
