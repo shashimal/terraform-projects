@@ -14,3 +14,10 @@ module "service_consumer_vpc" {
 
   tags = var.tags
 }
+
+resource "aws_vpc_endpoint" "vpc_endpoint" {
+  service_name = var.vpc_endpoint_service_name
+  vpc_id       = module.service_consumer_vpc.vpc_id
+  vpc_endpoint_type = "Interface"
+  security_group_ids = [module.service_consumer_vpc_endpoint_sg.security_group_id]
+}

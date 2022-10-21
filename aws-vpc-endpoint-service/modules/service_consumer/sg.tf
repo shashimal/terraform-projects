@@ -19,3 +19,14 @@ module "service_consumer_private_server_sg" {
   ingress_rules       = var.private_server_sg_ingress_rules
   egress_rules        = ["all-all"]
 }
+
+module "service_consumer_vpc_endpoint_sg" {
+  source = "terraform-aws-modules/security-group/aws"
+
+  name                = "vpc-endpoint-sg"
+  description         = "vpc-endpoint-sg"
+  vpc_id              = module.service_consumer_vpc.vpc_id
+  ingress_cidr_blocks = var.private_server_sg_ingress_cidr
+  ingress_rules       = ["http-80-tcp"]
+  egress_rules        = ["all-all"]
+}

@@ -81,3 +81,7 @@ variable "private_server_sg_ingress_cidr" {
 variable "private_server_sg_ingress_rules" {
   type = list(string)
 }
+
+variable "vpc_endpoint_service_name" {
+  type = string
+}
